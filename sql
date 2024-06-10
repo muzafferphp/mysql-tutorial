@@ -184,3 +184,29 @@ FROM orders
 JOIN order_details ON orders.order_id = order_details.order_id
 JOIN products ON order_details.product_id = products.product_id;
 
+
+What is alias in sql ?
+============================================
+In SQL, an alias is a temporary name given to a table or column for the duration of a particular query. Aliases are often used to make column names more readable, to shorten table names when performing joins, or to avoid ambiguity when working with multiple tables that have columns with the same names.
+
+SELECT e.employee_id, e.first_name, d.department_name
+FROM employees AS e
+JOIN departments AS d ON e.department_id = d.department_id;
+
+
+OR 
+
+SELECT e.employee_id, e.first_name, d.department_name
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id;
+
+
+Explain sub query with example ?
+=====================================
+
+A subquery, also known as an inner query or nested query, is a query embedded within another SQL query. The outer query is referred to as the main query, and the subquery is executed first, providing results to the main query. Subqueries can be used in various SQL clauses such as SELECT, FROM, WHERE, and HAVING.
+
+
+SELECT employee_id, first_name, last_name
+FROM employees
+WHERE salary = (SELECT MAX(salary) FROM employees);
