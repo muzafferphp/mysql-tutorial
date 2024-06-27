@@ -230,3 +230,175 @@ SQL can create new tables in a database
 SQL can create stored procedures in a database
 SQL can create views in a database
 SQL can set permissions on tables, procedures, and views
+
+
+What aggregate functions do you know?
+==========================================
+AVG() – returns the average value
+SUM() – returns the sum of values
+MIN() – returns the minimum value
+MAX() – returns the maximum value
+COUNT() – returns the number of rows, including those with null values
+FIRST() – returns the first value from a column
+LAST()– returns the last value from a column
+
+
+ What is a view, and why use it?
+ =================================
+A virtual table containing a subset of data retrieved from one or more database tables (or other views). Views take very little space, simplify complex queries, limit access to the data for security reasons, enable data independence, and summarize data from multiple tables.
+
+
+
+What is the difference between the DELETE and TRUNCATE statements?
+=================================================================
+DELETE is a reversible DML (Data Manipulation Language) command used to delete one or more rows from a table based on the conditions specified in the WHERE clause. Instead, TRUNCATE is an irreversible DDL (Data Definition Language) command used to delete all rows from a table. DELETE works slower than TRUNCATE. Also, we can't use the TRUNCATE statement for a table containing a foreign key.
+
+What is the difference between the DROP and TRUNCATE statements?
+==================================================================
+DROP deletes a table from the database completely, including the table structure and all the associated constraints, relationships with other tables, and access privileges. TRUNCATE deletes all rows from a table without affecting the table structure and constraints. DROP works slower than TRUNCATE. Both are irreversible DDL (Data Definition Language) commands.
+
+
+How to find the last id in a table?
+=======================================
+Using the MAX() function. Otherwise, in many SQL versions, we can use the following syntax:
+
+
+SELECT id
+FROM table_name
+ORDER BY id DESC
+LIMIT 1
+
+
+What is Index in SQL?
+=============================
+
+With the help of Indexes, information retrieval from the database happens faster and with greater efficiency. Thus, indexes improve performance. There are three types of indexes:
+
+Clustered: Used for reordering tables and searching information with key values.
+Non-clustered: Used for maintaining the order of the tables.
+Unique: They ban fields from having duplicate values.
+There can be many non-clustered indexes in a table, however, there can be only one clustered index.
+
+
+Are NULL values equal to zero?
+==================================
+No. NULL values show an absence of characters, whereas zero is a numerical value. NULL values occur when a character is unavailable or not known. NULL values should also not be confused with blank space because a blank space is not supposed to have any data attached to it, whereas a NULL value shows a data record without any value assigned to it.
+
+
+What do you mean by ‘auto increment’?
+==========================================
+With the auto-increment command, one can generate unique numbers when new records are added to a table. This function is especially useful when one wants to automatically generate the primary key field values upon inserting new records. This command comes in handy on several platforms. The auto-increment command for the SQL servers is “identity”
+
+
+What is a Primary Key?
+=========================
+A primary key is used to identify unique rows or tables in a database. Primary keys must always contain unique values. Null or duplicate values are not considered primary keys.
+
+
+What is a Foreign Key?
+=======================
+A foreign key is used to link two or more tables together. Its values match with a primary key from a different table. Foreign keys are like references between tables.
+
+
+What is a unique key?
+===========================
+A unique key ensures a table has a unique value not found or contained in other rows or columns. Unlike the primary key, the unique key may have multiple columns. You can create a unique key using the keyword "UNIQUE" when defining the table.
+
+
+What is the difference between TRUNCATE and DELETE?
+=======================================================
+The truncate command is used when you want to delete all rows and values from a table. It is a DDL type of command which is faster. While the DELETE command is used when you want to delete a specific row in a table. It is a DML command type and less efficient than the truncate statement.
+
+
+What is a cursor?
+==================
+A cursor is a temporary memory allocated by the server when performing any DML queries. They are used to store Database Tables. Basically a cursor in sql is an object in database code that allows processes to process rows one by one. While in other programming languages sets of data is processed individually through a loop, in SQL, data is processed in a set through a cursor.
+
+Two types of cursors are Implicit cursors and Explicit cursors.
+
+Implicit Cursors:
+They are Default Cursors of SQL SERVER. Allocated when the user performs DML operations.
+
+Explicit Cursors:
+They are created by users in need. They are used for Fetching data from Tables in Row-By-Row Manner.
+
+
+What is the difference between Local and Global variables?
+========================================================
+Local variables are used inside a function and can’t be reused by other functions, whereas global variables can be accessed and used throughout the program.
+
+
+What is a subquery?
+=========================
+A subquery is a query that is found in another query. Usually referred to as an inner query, its output is typically used by another query.
+
+
+What is ACID?
+=======================
+
+ACID in SQL refers to a set of properties that guarantee the reliable and consistent processing of database transactions. It is an acronym where each letter stands for one of the properties:
+
+Atomicity: Ensures that a transaction is either fully completed or not executed at all. If any part of a transaction fails, the entire transaction is rolled back, and the database remains unchanged.
+
+Consistency: Guarantees that the database transitions from one consistent state to another upon the completion of a transaction. All data must adhere to predefined rules and constraints.
+
+Isolation: Provides a degree of separation between concurrent transactions, ensuring that they do not interfere with one other. It helps maintain data integrity by controlling the visibility of changes made by one transaction to another.
+
+Durability: Guarantees that after a transaction has been committed, the modifications made to the database become permanent, even if a system failure or crash occurs.
+
+ACID properties are vital in maintaining data integrity and consistency in relational database management systems (RDBMS) and ensuring the robustness of transactions.
+
+
+What are triggers in SQL?
+==============================
+Triggers are special stored procedures that run when there's an event in the database server, such as changing data in a table. A trigger is different from a regular stored procedure as it cannot be directly called like a regular stored procedure.
+
+What is a Clause?
+======================
+A clause is one of the SQL query statements that filters or customizes data for a query. It allows users to limit the results by providing a conditional statement to the query. It is typically used when a large amount of data is in the database.
+
+
+Differentiate between HAVING and WHERE clauses
+================================================
+These conditions are used for searching values except that the HAVING clause is used with the SELECT statement accompanied by the GROUP BY clause. The HAVING clause is used in combination with the GROUP BY clause to filter the data based on aggregate values, while the WHERE clause is used to filter the data based on individual values.
+
+
+
+What are DBMS and RDBMS?
+==============================
+DBMS – Database Management System.
+
+DBMS is the software that allows storing, modifying, and retrieving data from a database. And it is a group of programs that act as the interface between data and applications. DBMS supports receiving queries from applications and retrieving data from the database.
+
+RDBMS – Relational Database Management System
+
+Like DBMS, RDBMS is also the software that allows storing, modifying, and retrieving data from a database but a RELATIONAL database. In a relational database, the data in the tables have a relationship. Besides, RDBMS is useful when data in tables are being managed securely and consistently.
+
+
+Mention the different types of SQL commands or SQL subsets?
+==============================================================
+There are five types of SQL commands offered in SQL. They are given as follows;
+
+DDL - Data Definition Languages
+DML - Data Manipulation Languages
+DCL - Data Control Language
+TCL - Transaction Control Language
+DQL - Data Query Language
+
+
+What are the Various Commands used in SQL Subsets?
+======================================================
+DDL = CREATE, DROP, ALTER, TRUNCATE, ADD COLUMN, and DROP COLUMN
+DML = INSERT, DELETE, and UPDATE
+DCL = GRANT and REVOKE
+TCL = COMMIT, ROLLBACK, SAVEPOINT, and SET TRANSACTION
+DQL = SELECT
+
+
+What is the difference between Index and View?
+================================================
+
+Generally, an index is created in a separate table. They are the pointers that indicate the address of data in a database table. An index helps speed up querying and the data retrieval process in a database.
+
+On the other hand, a view is a virtual table created from the rows and columns of one or more tables. The main thing about a view is that the rows and columns are grouped logically. With the support of views, you can restrict access to the entire data in a database.
+
