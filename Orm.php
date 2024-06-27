@@ -227,3 +227,71 @@ class Post extends Model
     }
 }
 
+
+
+
+One to One (Polymorphic)
+==========================
+A one-to-one polymorphic relation is similar to a typical one-to-one relation; however, the child model can belong to more than one type of model using a single association. For example, a blog Post and a User may share a polymorphic relation to an Image model. Using a one-to-one polymorphic relation allows you to have a single table of unique images that may be associated with posts and users. First, let's examine the table structure:
+
+
+posts
+    id - integer
+    name - string
+ 
+users
+    id - integer
+    name - string
+ 
+images
+    id - integer
+    url - string
+    imageable_id - integer
+    imageable_type - string
+
+
+
+
+
+ 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+ 
+class Image extends Model
+{
+    /**
+     * Get the parent imageable model (user or post).
+     */
+    public function imageable(): MorphTo
+    {
+        return $this->morphTo();
+    }
+}
+ 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
+ 
+class Post extends Model
+{
+    /**
+     * Get the post's image.
+     */
+    public function image(): MorphOne
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
+}
+ 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
+ 
+class User extends Model
+{
+    /**
+     * Get the user's image.
+     */
+    public function image(): MorphOne
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
+}
