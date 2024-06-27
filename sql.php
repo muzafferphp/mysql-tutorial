@@ -397,7 +397,6 @@ DQL = SELECT
 
 What is the difference between Index and View?
 ================================================
-
 Generally, an index is created in a separate table. They are the pointers that indicate the address of data in a database table. An index helps speed up querying and the data retrieval process in a database.
 
 On the other hand, a view is a virtual table created from the rows and columns of one or more tables. The main thing about a view is that the rows and columns are grouped logically. With the support of views, you can restrict access to the entire data in a database.
